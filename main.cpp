@@ -1,4 +1,4 @@
-#include <sfml/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -7,6 +7,7 @@ int main()
 {
     const int screenSize = 800;
     sf::RenderWindow window(sf::VideoMode(screenSize, screenSize), "Isometric tiles");
+    window.setFramerateLimit(60);
     const int tileSize = 50;
     const float scale = screenSize / 16.0f / tileSize;
     //(5, 0.5), (10, 2), (15, 4.5), (20, 8), 
@@ -55,7 +56,7 @@ int main()
                 //make donut wave thing
                 float xQuadratic = pow(col - tileSize/2, 2);
                 float yQuadratic = pow(row - tileSize/2, 2);
-                yOffset = sin(0.2*(sqrt(10 * xQuadratic + 10 * yQuadratic)) - frame / 50.0f) * 30 + 30;
+                yOffset = sin(0.2*(sqrt(10 * xQuadratic + 10 * yQuadratic)) - frame / 20.0f) * 30 + 30;
                 xOffset = 0;
                 float x = screenSize * col / scale;
                 float y = screenSize * row / scale;
@@ -73,7 +74,7 @@ int main()
                 yTile = yTile + yOffset + xOffset;
                 g = 4 * yOffset;
                 //can loop back from being too big
-                b = xOffset + yOffset * 10;
+                //b = xOffset + yOffset * 10;
                 r = 255;
                 b = 4 * yOffset;
                 (*(*tileBoard)[col])[row]-> setPosition(xTile, yTile);
