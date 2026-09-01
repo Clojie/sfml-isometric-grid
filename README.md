@@ -1,6 +1,6 @@
 # Isometric Grid
 
-An animated isometric tile grid written in C++ using SFML. A radial sine wave ripples outward from the center of the grid, displacing tiles vertically and shifting their color in real time.
+Animated isometric tile grid with a ripple wave effects. Written in C++ using SFML. Made this to practice SMFL and isometric rendering. 
 
 ## Requirements
 
